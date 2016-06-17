@@ -135,10 +135,10 @@ public class MainActivity extends AppCompatActivity
     public List<String> dayOrder(List<String> daysWeek) {
         List<String> order = new ArrayList<>();
         for(int i = 0,j = day; i <= 7;i++){
-            order.add(daysWeek.get(j));
-            j++;
             if(j== 7)
                 j= 0;
+            order.add(daysWeek.get(j));
+            j++;
         }
         return order;
     }
