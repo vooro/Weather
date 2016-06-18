@@ -222,7 +222,6 @@ public class MainActivity extends AppCompatActivity
             layout.setBackgroundResource(R.drawable.clearsky);
         else
             layout.setBackgroundResource(R.drawable.brokenclouds);
-
     }
 
    @Override
