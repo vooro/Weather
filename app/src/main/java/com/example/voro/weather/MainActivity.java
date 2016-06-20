@@ -73,9 +73,6 @@ public class MainActivity extends AppCompatActivity
         layout =(RelativeLayout) findViewById(R.id.layout);
 
 
-
-
-
         sharedPreferences = this.getSharedPreferences("com.example.voro.weather",MODE_PRIVATE);
         populateUI(sharedPreferences.getString("search","Suceava"));
         day = calendar.get(Calendar.DAY_OF_WEEK);
@@ -107,8 +104,9 @@ public class MainActivity extends AppCompatActivity
         DownloadTask forecastTask =  new DownloadTask();
         DownloadImage image = new DownloadImage();
         try {
-            String weatherUrl = weatherTask.execute(Constants.WEATHER_URL + str + Constants.WEATHER_API).get();
-            String forecastUrl = forecastTask.execute(Constants.FORECAST_ULR + str + Constants.WEATHER_API).get();
+            String str_no_spaces = str.replace(" ","");
+            String weatherUrl = weatherTask.execute(Constants.WEATHER_URL + str_no_spaces + Constants.WEATHER_API).get();
+            String forecastUrl = forecastTask.execute(Constants.FORECAST_ULR + str_no_spaces + Constants.WEATHER_API).get();
 
             weather = WebUtils.parseWeather(weatherUrl);
             forecast = WebUtils.parseForcast(forecastUrl);
